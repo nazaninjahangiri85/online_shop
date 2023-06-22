@@ -9,10 +9,13 @@
             ></v-img>
           </template>
   
-          <template v-slot:prepend>
-            <v-app-bar-nav-icon></v-app-bar-nav-icon>
-          </template>
-  
+        
+            <v-btn to="/login" icon>
+              <v-icon>mdi-login</v-icon>
+            </v-btn>  
+            <v-btn to="/" icon>
+              <v-icon>mdi-home</v-icon>
+            </v-btn> 
           <v-app-bar-title>Title</v-app-bar-title>
   
           <v-spacer></v-spacer>
