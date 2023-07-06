@@ -37,12 +37,12 @@
         </template>
         <v-radio value="شماره تلفن همراه">
           <template v-slot:label>
-            <div><strong class="text-orange">شماره تلفن همراه</strong></div>
+            <div><strong >شماره تلفن همراه</strong></div>
           </template>
         </v-radio>
         <v-radio value="نام کاربری">
           <template v-slot:label>
-            <div><strong class="text-primary">نام کاربری</strong></div>
+            <div><strong>نام کاربری</strong></div>
           </template>
         </v-radio>
       </v-radio-group>
@@ -60,7 +60,7 @@
      }},
      computed: {
       UsernameValidation (){
-        if (this.username.length>=8){
+        if (this.username?.length>=8){
        return "valid"
       }else{
         return "invalid"
