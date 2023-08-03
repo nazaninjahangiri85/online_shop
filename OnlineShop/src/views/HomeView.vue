@@ -1,29 +1,3 @@
-<script>
-import axios from "axios";
-export default {
-  data() {
-    return {
-      collapseOnScroll: true,
-      title: "Vue-2 Appssssssss",
-      cards: null
-  
-    };
-  },
-  mounted() {
-   this.getAndShowCards()
-  },
-  
-   methods: {
-    getAndShowCards() {
-      axios.get('https://fakestoreapi.com/products').then((response) => {
-        console.log(response.data);
-        this.cards = response.data;
-      })
-    }
-  }
-}
-</script>
-
 <template>
   <v-card
   class="mx-auto"
@@ -63,3 +37,29 @@ export default {
   </v-container>
 </v-card>
 </template>
+
+<script>
+import axios from "axios";
+export default {
+  data() {
+    return {
+      collapseOnScroll: true,
+      title: "Vue-2 Appssssssss",
+      cards: null
+  
+    };
+  },
+  mounted() {
+   this.getAndShowCards()
+  },
+  
+   methods: {
+    getAndShowCards() {
+      axios.get('https://fakestoreapi.com/products').then((response) => {
+        console.log(response.data);
+        this.cards = response.data;
+      })
+    }
+  }
+}
+</script>

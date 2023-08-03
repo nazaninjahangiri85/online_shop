@@ -50,7 +50,8 @@
   
   </template>
 <script>
-// import { computed } from 'vue';
+   import { mapState, mapStores } from "pinia";
+   import { useLoginStore } from "@/stores";
 
    export default {
     data()  {
@@ -58,15 +59,29 @@
         username : null,
         UsernameValidFormat: false,
      }},
-     computed: {
-      UsernameValidation (){
+    computed: {
+      ...mapStores(useLoginStore),
+      // ...mapState(loginStore, ["token"]),
+      UsernameValidation () {
         if (this.username?.length>=8){
-       return "valid"
-      }else{
-        return "invalid"
+        return "valid"
+        } else {
+          return "invalid"
+        }
       }
-      }
-     
+    },
+    mounted() {
+      this.authentication()
+    },
+     methods: {
+      authentication() {
+        //if the backend response is 200
+        const token = "njkn54jgdjgdjfh8875"
+        this.loginStore.login(token)
+        //  loginStore().login("dsfdgfgjhjkjlklkj") 
+        console.log("***********", this.loginStore.isAuthenticated);
+      } 
+
      }
     
 }
