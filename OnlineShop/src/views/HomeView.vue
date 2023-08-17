@@ -36,20 +36,28 @@
     </v-row>
   </v-container>
 </v-card>
+<Alert :activator="activator" :msg="msg" colorP="green"/>
 </template>
 
 <script>
 import axios from "axios";
+import Alert from '@/components/Alert.vue'
 export default {
+  components:{
+    Alert
+  },
   data() {
     return {
       collapseOnScroll: true,
       title: "Vue-2 Appssssssss",
-      cards: null
+      cards: null,
+      activator: false,
+      msg: ""
   
     };
   },
   mounted() {
+   
    this.getAndShowCards()
   },
   
@@ -57,9 +65,12 @@ export default {
     getAndShowCards() {
       axios.get('https://fakestoreapi.com/products').then((response) => {
         console.log(response.data);
+        this.activator = true
+        this.msg = "داده ها با موفقیت  بارگیری شدند"
         this.cards = response.data;
       })
     }
   }
 }
 </script>
+
