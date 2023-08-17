@@ -1,9 +1,3 @@
-<script setup>
-import { RouterLink, RouterView } from 'vue-router'
-import DefaultLayout from './layouts/DefaultLayout.Vue';
-import HomeView from './views/HomeView.vue';
-</script>
-
 <template>
   <v-app id="app">
     <DefaultLayout></DefaultLayout>
@@ -12,7 +6,13 @@ import HomeView from './views/HomeView.vue';
     </v-main>
   </v-app>
 </template>
+<script setup>
+   import { RouterLink, RouterView } from 'vue-router'
+   import DefaultLayout from './layouts/DefaultLayout.Vue';
+  import HomeView from './views/HomeView.vue';
+</script>
 
 <style scoped>
 
 </style>
+ 

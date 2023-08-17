@@ -27,6 +27,7 @@
           size="large"
           type="submit"
           variant="elevated"
+          @click="authentication"
         >
           ورود
         </v-btn>
@@ -56,14 +57,15 @@
    export default {
     data()  {
      return {
-        username : null,
+        username : "",
+        password : "",
         UsernameValidFormat: false,
      }},
     computed: {
       ...mapStores(useLoginStore),
       // ...mapState(loginStore, ["token"]),
       UsernameValidation () {
-        if (this.username?.length>=8){
+        if (this.username.length>=8){
         return "valid"
         } else {
           return "invalid"
@@ -71,15 +73,17 @@
       }
     },
     mounted() {
-      this.authentication()
+    //this.authentication()
     },
      methods: {
       authentication() {
-        //if the backend response is 200
+        if(this.userName.length > 0 && this.password.length > 0) {
+          //if the backend response is 200
         const token = "njkn54jgdjgdjfh8875"
         this.loginStore.login(token)
         //  loginStore().login("dsfdgfgjhjkjlklkj") 
         console.log("***********", this.loginStore.isAuthenticated);
+        }
       } 
 
      }
